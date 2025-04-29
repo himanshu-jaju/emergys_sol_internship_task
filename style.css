@@ -560,8 +560,15 @@ body.nav-open::after {
 .attribution {
   font-size: 11px;
   text-align: center;
-  padding: 1rem;
+  padding: 0;
+  margin-bottom: 0;
   color: var(--clr-neutral-500);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: white; /* Or match your page background */
+  z-index: 100;
 }
 .attribution a {
   color: var(--clr-primary-400);
