@@ -9,7 +9,7 @@
   --clr-neutral-200: hsl(13, 100%, 96%); /* Very Pale Red */
   --clr-neutral-500: hsl(227, 12%, 61%); /* Dark Grayish Blue */
   --clr-neutral-900: hsl(233, 12%, 13%); /* Very Dark Blue */
-  --clr-neutral-800: hsl(228, 39%, 23%); 
+  --clr-neutral-800: hsl(228, 39%, 23%); /* Dark Blue */
 
   --ff-primary: 'Be Vietnam Pro', sans-serif;
 
@@ -36,6 +36,12 @@ html {
   width: 100%;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: var(--ff-primary);
   font-size: var(--fs-body);
@@ -44,6 +50,13 @@ body {
   background-color: var(--clr-neutral-100);
   overflow-x: hidden; /* Prevent horizontal scroll */
   position: relative; /* Needed for background patterns */
+  margin: 0;
+  padding: 0;
+}
+
+
+main {
+  flex: 1; /* pushes footer down */
 }
 
 /* Add background pattern */
@@ -523,6 +536,44 @@ body.nav-open::after {
     border: 1px solid transparent;
 }
 
+/* --- Attribution --- */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 0;
+  color: var(--clr-neutral-500);
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: white; /* Or match your page background */
+  /* z-index: 100; */
+}
+.attribution a {
+  color: var(--clr-primary-400);
+}
+
+.hero-bg {
+  position: relative;
+}
+
+.bg-pattern-tablet {
+  position: absolute;
+  top: -150px;      /* adjust based on your design */
+  right: -100px;    /* adjust based on your layout */
+  z-index: -1;      /* ensure it stays behind text and other content */
+  width: 600px;     /* scale as needed to match the design */
+  opacity: 0.9;     /* optional, depending on how subtle it looks in your design */
+}
+.bg-pattern-mobile {
+  position: absolute;
+  top: -100px;      /* adjust based on your design */
+  right: -50px;    /* adjust based on your layout */
+  z-index: -1;      /* ensure it stays behind text and other content */
+  width: 300px;     /* scale as needed to match the design */
+  opacity: 0.9;     /* optional, depending on how subtle it looks in your design */
+}
+
 .newsletter-form__input:focus {
     outline: 2px solid var(--clr-primary-400);
     outline-offset: 2px;
@@ -556,22 +607,30 @@ body.nav-open::after {
     margin-top: auto; /* Pushes to bottom in flex column */
 }
 
-/* --- Attribution --- */
-.attribution {
-  font-size: 11px;
-  text-align: center;
-  padding: 0;
-  margin-bottom: 0;
-  color: var(--clr-neutral-500);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: white; /* Or match your page background */
-  z-index: 100;
-}
-.attribution a {
-  color: var(--clr-primary-400);
+@media (min-width: 768px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    gap: 2rem;
+  }
+
+  .hero__image {
+    flex: 1;
+    margin-bottom: 0; /* Remove margin to prevent spacing on desktop */
+  }
+
+  .hero__content {
+    flex: 1;
+  }
+
+  .hero__text {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* --- Desktop Styles (min-width: 62em) --- */
